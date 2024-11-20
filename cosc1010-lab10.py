@@ -1,6 +1,6 @@
-# Your Name Here
+# Brian Barrios Montiel
 # UWYO COSC 1010
-# Submission Date
+# November 19,2024
 # Lab 10
 # Lab Section: 11
 # Sources, people worked with, help given to: 
