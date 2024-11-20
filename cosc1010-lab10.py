@@ -1,8 +1,8 @@
 # Your Name Here
 # UWYO COSC 1010
 # Submission Date
-# Lab XX
-# Lab Section: 
+# Lab 10
+# Lab Section: 11
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -43,3 +43,30 @@ def get_hash(to_hash):
 # Hash each individual password and compare it against the stored hash.
 # - When you find the match, print the plaintext version of the password.
 # - End your loop.
+
+
+def main():
+    try:
+        hash_file = Path('hash')
+        with hash_file.open('r') as file:
+            target_hash = file.read().strip()  
+    except FileNotFoundError:
+        print("Error: The 'hash' file could not be found.")
+        return
+
+    try:
+        code_file = Path('rockyou.txt')
+        with code_file.open('r', encoding='utf-8', errors='ignore') as file:
+            real_codes = file.readlines()
+    except FileNotFoundError:
+        print("File could not be found.")
+        return
+    else:
+        for codes in real_codes:
+            codes = codes.strip()  
+            if get_hash(codes) == target_hash:
+                print(f"Password: {codes}")
+                break
+if __name__ == "__main__":
+    main()
+
